@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>観劇記録 | 幕が上がる夜に</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-deep:      #1A0510;
+      --bg-stage:     #2D0A1F;
+      --curtain-dark: #4A0E28;
+      --curtain-mid:  #6B1E3D;
+      --gold:         #C9A84C;
+      --gold-pale:    #E8CC88;
+      --star-white:   #FFF8E7;
+      --text-main:    #F2C4D0;
+      --text-dim:     #B8849A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* ── STARS ── */
+    .stars-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      background: var(--star-white);
+      border-radius: 50%;
+      animation: twinkle var(--dur, 3s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+      opacity: 0;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50%       { opacity: var(--max-op, 0.5); }
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative;
+      z-index: 1;
+      padding: 2.2rem 2rem 1.8rem;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .site-name {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold-pale);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.6rem;
+    }
+
+    nav a {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--gold); }
+
+    /* ── PAGE TITLE ── */
+    .page-title-wrap {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+    }
+
+    .page-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 400;
+      color: var(--star-white);
+    }
+
+    /* ── ENTRIES ── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .entry {
+      padding: 2.8rem 0;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .entry:last-child {
+      border-bottom: none;
+    }
+
+    .entry-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .entry-date::after {
+      content: '';
+      display: block;
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,168,76,0.3), transparent);
+      max-width: 120px;
+    }
+
+    .entry-body {
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+    }
+
+    .entry-body p + p {
+      margin-top: 1.2em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.7rem;
+      color: rgba(184, 132, 154, 0.4);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars-bg" id="starsLayer"></div>
+
+  <header>
+    <a class="site-name" href="index.html">幕が上がる夜に</a>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="blog.html" class="active">観劇記録</a>
+      <a href="column.html">コラム</a>
+      <a href="about.html">ABOUT</a>
+    </nav>
+  </header>
+
+  <div class="page-title-wrap">
+    <p class="page-eyebrow">✦ diary ✦</p>
+    <h1 class="page-title">観劇記録</h1>
+  </div>
+
+  <main>
+
+    <article class="entry">
+      <p class="entry-date">2025年○月○日</p>
+      <div class="entry-body">
+        <p>ここに観劇の記録を書きます。舞台の感想、印象に残った場面、役者さんの演技、セットや衣装のこと。</p>
+        <p>幕が下りた後もしばらく、余韻の中にいた夜のことを。</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <p class="entry-date">2025年○月○日</p>
+      <div class="entry-body">
+        <p>二度目の観劇。前回と違う席から観て、気づかなかったものがたくさん見えた。あの照明の使い方が、こんなふうに意味を持っていたのかと。</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <p class="entry-date">2025年○月○日</p>
+      <div class="entry-body">
+        <p>カーテンコールで何度も呼ばれる声に混じって、自分の手が真っ赤になるまで拍手していた。ああ、また来てよかったと思った夜。</p>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <p>✦ 幕が上がる夜に ✦</p>
+  </footer>
+
+  <script>
+    const layer = document.getElementById('starsLayer');
+    for (let i = 0; i < 55; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2 + 0.8;
+      s.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random()*100}%; top:${Math.random()*100}%;
+        --dur:${(Math.random()*4+2).toFixed(1)}s;
+        --delay:${(Math.random()*6).toFixed(1)}s;
+        --max-op:${(Math.random()*0.4+0.15).toFixed(2)};
+      `;
+      layer.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>
