@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ギリシャ悲劇について | 幕が上がる夜に</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #1A0510;
+      --gold:      #C9A84C;
+      --gold-pale: #E8CC88;
+      --star-white:#FFF8E7;
+      --text-main: #F2C4D0;
+      --text-dim:  #B8849A;
+      --note-bg:   rgba(255,248,231,0.04);
+      --border:    rgba(201,168,76,0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+      line-height: 1.95;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 1.6rem 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .site-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold-pale);
+      text-decoration: none;
+    }
+
+    .back-link {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--gold); }
+    .back-link::before { content: '← '; }
+
+    /* ── WIKI WRAP ── */
+    .wiki-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* ── PAGE HEADER ── */
+    .wiki-page-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 600;
+      color: var(--star-white);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .wiki-meta {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+    }
+
+    /* ── NOTE BANNER (Wikipediaのノートっぽいバナー) ── */
+    .wiki-note-banner {
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.28);
+      border-left: 4px solid var(--gold);
+      padding: 0.85rem 1.1rem;
+      margin-bottom: 2rem;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    .wiki-note-banner strong {
+      color: var(--gold-pale);
+      font-weight: 400;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--note-bg);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.4rem;
+      display: inline-block;
+      min-width: 220px;
+      margin-bottom: 2.5rem;
+      font-size: 0.8rem;
+    }
+
+    .toc-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.7rem;
+    }
+
+    .toc ol {
+      padding-left: 1.2rem;
+      color: var(--text-dim);
+      line-height: 2;
+    }
+
+    .toc a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .toc a:hover { color: var(--gold); }
+
+    /* ── SECTIONS ── */
+    .wiki-section {
+      margin-bottom: 2.8rem;
+    }
+
+    .wiki-h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--star-white);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .wiki-h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--gold-pale);
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    .wiki-p {
+      color: var(--text-main);
+      margin-bottom: 0.9rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* インラインメモ */
+    .wiki-aside {
+      background: var(--note-bg);
+      border-left: 3px solid rgba(201,168,76,0.3);
+      padding: 0.7rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 2rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: rgba(184,132,154,0.4);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="site-name" href="index.html">幕が上がる夜に</a>
+    <a class="back-link" href="column.html">コラムに戻る</a>
+  </header>
+
+  <div class="wiki-wrap">
+
+    <h1 class="wiki-page-title">ギリシャ悲劇について</h1>
+    <p class="wiki-meta">個人メモ ／ 最終更新：2025年○月○日</p>
+
+    <div class="wiki-note-banner">
+      <strong>📝 このページについて：</strong>
+      自分用の勉強まとめです。正確性より「わかった気がした順」に書いています。間違いがあるかもしれません。
+    </div>
+
+    <nav class="toc">
+      <p class="toc-title">目次</p>
+      <ol>
+        <li><a href="#overview">概要</a></li>
+        <li><a href="#origin">起源と歴史</a></li>
+        <li><a href="#poets">三大悲劇詩人</a></li>
+        <li><a href="#structure">構造と形式</a></li>
+        <li><a href="#catharsis">カタルシス</a></li>
+        <li><a href="#memo">気になったこと</a></li>
+      </ol>
+    </nav>
+
+    <section class="wiki-section" id="overview">
+      <h2 class="wiki-h2">1. 概要</h2>
+      <p class="wiki-p">古代ギリシャ（紀元前5〜6世紀ごろ）に生まれた演劇のジャンル。神話や英雄伝説を題材に、人間の苦しみや運命、神との関係を描く。コメディとセットで語られることが多い。</p>
+      <p class="wiki-p">アテナイの祭典（ディオニュシア祭）で上演されたのが始まりとされる。もともと宗教的な儀式の一部だったらしい。</p>
+    </section>
+
+    <section class="wiki-section" id="origin">
+      <h2 class="wiki-h2">2. 起源と歴史</h2>
+      <p class="wiki-p">ディオニュソス神（酒と豊穣の神）を称える祭りの中から発展した。コロス（合唱隊）が歌い踊る形式が出発点で、そこに俳優が加わっていった流れ。</p>
+      <div class="wiki-aside">
+        テスピスという人物が最初に俳優としてコロスから分離したと言われている。紀元前534年ごろ。「テスピアン（俳優）」という言葉の語源。
+      </div>
+      <p class="wiki-p">最盛期は紀元前5世紀のアテナイ。ペルシア戦争に勝った後の文化的隆盛期と重なる。</p>
+    </section>
+
+    <section class="wiki-section" id="poets">
+      <h2 class="wiki-h2">3. 三大悲劇詩人</h2>
+
+      <h3 class="wiki-h3">アイスキュロス（前525〜前456年）</h3>
+      <p class="wiki-p">悲劇の父とも呼ばれる。二人目の俳優を登場させたことで劇的な対話が生まれた。代表作は『アガメムノン』『縛られたプロメテウス』など。</p>
+
+      <h3 class="wiki-h3">ソポクレス（前496〜前406年）</h3>
+      <p class="wiki-p">三人目の俳優を加えて劇の幅を広げた。心理描写が細かく、人間の内面を深く掘り下げる。『オイディプス王』が有名。運命と自由意志のテーマ。</p>
+      <div class="wiki-aside">
+        『オイディプス王』はフロイトが「エディプスコンプレックス」の名前の由来に使ったやつ。
+      </div>
+
+      <h3 class="wiki-h3">エウリピデス（前480〜前406年）</h3>
+      <p class="wiki-p">三人の中で一番「人間くさい」と言われる。神話の登場人物を等身大に描き、女性や奴隷の視点を取り入れた。当時は批判も多かったらしいが後世に高く評価された。代表作は『メデイア』。</p>
+    </section>
+
+    <section class="wiki-section" id="structure">
+      <h2 class="wiki-h2">4. 構造と形式</h2>
+      <p class="wiki-p">ギリシャ悲劇には決まった構成がある。</p>
+      <p class="wiki-p"><strong style="color:var(--gold-pale)">プロローグ</strong>：物語の背景説明。<br>
+      <strong style="color:var(--gold-pale)">パロドス</strong>：コロスが入場する場面。<br>
+      <strong style="color:var(--gold-pale)">エペイソディオン</strong>：本編の場面（エピソード）。コロスの歌（スタシモン）と交互に繰り返す。<br>
+      <strong style="color:var(--gold-pale)">エクソドス</strong>：結末、退場。</p>
+      <div class="wiki-aside">
+        コロス（合唱隊）は15人前後で、解説者・観客の代理・感情の増幅装置みたいな役割をする。現代の演劇でいうナレーターに近い？
+      </div>
+    </section>
+
+    <section class="wiki-section" id="catharsis">
+      <h2 class="wiki-h2">5. カタルシス</h2>
+      <p class="wiki-p">アリストテレスが『詩学』の中で提唱した概念。悲劇を観ることで恐怖や憐れみの感情が浄化（カタルシス）される、という考え方。</p>
+      <p class="wiki-p">観客が舞台上の苦しみに感情移入して泣いたり恐れたりすることで、逆にすっきりする。いわゆる「泣いてスッキリ」の理論的な元祖かもしれない。</p>
+      <div class="wiki-aside">
+        これを読んで、カーテンコールが終わった後に劇場の外でぼーっとしてしまうあの感覚と繋がった気がした。
+      </div>
+    </section>
+
+    <section class="wiki-section" id="memo">
+      <h2 class="wiki-h2">6. 気になったこと</h2>
+      <p class="wiki-p">ここに自分が気になったこと、もっと調べたいこと、観劇と結びついた感想などを書いていく。</p>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>✦ 幕が上がる夜に ✦</p>
+  </footer>
+
+</body>
+</html>
