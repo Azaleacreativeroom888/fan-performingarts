@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>観劇のストーリー一覧 | 幕が上がる夜に</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#1A0510; --gold:#C9A84C; --gold-pale:#E8CC88; --star-white:#FFF8E7;
+      --text-main:#F2C4D0; --text-dim:#B8849A;
+      --note-bg:rgba(255,248,231,0.04); --border:rgba(201,168,76,0.2);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text-main); font-family:'Noto Serif JP',serif; font-weight:300; font-size:0.9rem; line-height:1.95; min-height:100vh; }
+    header { padding:1.6rem 2rem; border-bottom:1px solid var(--border); display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:0.6rem; }
+    .site-name { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:var(--gold-pale); text-decoration:none; }
+    .back-link { font-size:0.75rem; letter-spacing:0.15em; color:var(--text-dim); text-decoration:none; transition:color 0.2s; }
+    .back-link:hover { color:var(--gold); }
+    .back-link::before { content:'← '; }
+    .wiki-wrap { max-width:860px; margin:0 auto; padding:3rem 2rem 6rem; }
+    .wiki-page-title { font-size:clamp(1.4rem,3.5vw,2rem); font-weight:600; color:var(--star-white); border-bottom:2px solid var(--gold); padding-bottom:0.5rem; margin-bottom:0.5rem; }
+    .wiki-meta { font-size:0.72rem; color:var(--text-dim); letter-spacing:0.1em; margin-bottom:2rem; font-family:'Cormorant Garamond',serif; font-style:italic; }
+    .wiki-note-banner { background:rgba(201,168,76,0.07); border:1px solid rgba(201,168,76,0.28); border-left:4px solid var(--gold); padding:0.85rem 1.1rem; margin-bottom:2rem; font-size:0.78rem; color:var(--text-dim); line-height:1.7; }
+    .wiki-note-banner strong { color:var(--gold-pale); font-weight:400; }
+    .table-wrap { overflow-x:auto; }
+    table.wikitable { width:100%; border-collapse:collapse; font-size:0.82rem; line-height:1.8; min-width:420px; }
+    .wikitable th, .wikitable td { border:1px solid var(--border); padding:0.7rem 0.9rem; text-align:left; vertical-align:top; }
+    .wikitable th { background:rgba(201,168,76,0.1); color:var(--gold-pale); font-weight:600; letter-spacing:0.1em; font-size:0.78rem; white-space:nowrap; }
+    .wikitable td { background:var(--note-bg); color:var(--text-main); }
+    .wikitable td.title { color:var(--star-white); font-weight:400; white-space:nowrap; }
+    footer { border-top:1px solid var(--border); padding:1.8rem 2rem; text-align:center; font-size:0.7rem; color:rgba(184,132,154,0.4); letter-spacing:0.1em; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="site-name" href="index.html">幕が上がる夜に</a>
+    <a class="back-link" href="column.html">コラムに戻る</a>
+  </header>
+
+  <div class="wiki-wrap">
+
+    <h1 class="wiki-page-title">観劇のストーリー一覧</h1>
+    <p class="wiki-meta">個人メモ ／ 最終更新：2026年○月○日</p>
+
+    <div class="wiki-note-banner">
+      <strong>📝 このページについて：</strong>
+      観た舞台のあらすじを一覧にした自分用のノートです。ネタバレを含みます。
+    </div>
+
+    <div class="table-wrap">
+      <table class="wikitable">
+        <thead>
+          <tr>
+            <th>演目</th>
+            <th>あらすじ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="title">演目タイトル①</td>
+            <td>ここにあらすじを書きます。</td>
+          </tr>
+          <tr>
+            <td class="title">演目タイトル②</td>
+            <td>ここにあらすじを書きます。</td>
+          </tr>
+          <tr>
+            <td class="title">演目タイトル③</td>
+            <td>ここにあらすじを書きます。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>✦ 幕が上がる夜に ✦</p>
+  </footer>
+
+</body>
+</html>
